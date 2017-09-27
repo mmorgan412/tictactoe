@@ -13,6 +13,7 @@ $(() => {
 
 // use require without a reference to ensure a file is bundled
 // require('./example')
+
 $(() => {
   $('#row1col1').on('click', events.addSelector)
   $('#row1col2').on('click', events.addSelector)
@@ -24,6 +25,3 @@ $(() => {
   $('#row3col2').on('click', events.addSelector)
   $('#row3col3').on('click', events.addSelector)
 })
-
-// console.log('clicked 1st cell')
-// $('#row1col1').css('background-image', 'url(lib/images/o.png)')
