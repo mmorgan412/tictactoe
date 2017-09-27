@@ -7,7 +7,16 @@ h4 {
 }
 
 .box {
-  border: 1px solid #000000;
-  margin: 0;
+  border: 1px solid;
   height: 50px;
+  margin: 0;
 }
+
+div {
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+// div {
+//   background-size: cover;
+// }
