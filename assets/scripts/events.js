@@ -2,7 +2,7 @@
 
 const ui = require('./ui.js')
 
-const cells = []
+const cells = new Array(9)
 let winner
 
 const addSelector = function (event) {
@@ -64,11 +64,30 @@ const checkWinner = function () {
     winner = 'player_x'
     console.log(winner)
     ui.xWinningMessage()
-  } else if (cells.every(x) => (!'undefined') {
-      if true {
-      ui.drawMessage()
-    }
-  })
+    // check column 1 for winner
+  } else if (cells[0] !== 'undefined' && cells[0] === cells[3] && cells[0] === cells[6] && cells[0] === 'x') {
+    winner = 'player_x'
+    ui.xWinningMessage()
+  } else if (cells[0] !== 'undefined' && cells[0] === cells[3] && cells[0] === cells[6] && cells[0] === 'o') {
+    winner = 'player_o'
+    ui.oWinningMessage()
+    // check column 2 for winner
+  } else if (cells[1] !== 'undefined' && cells[1] === cells[4] && cells[1] === cells[7] && cells[1] === 'x') {
+    winner = 'player_x'
+    ui.xWinningMessage()
+  } else if (cells[1] !== 'undefined' && cells[1] === cells[4] && cells[1] === cells[7] && cells[1] === 'o') {
+    winner = 'player_o'
+    ui.oWinningMessage()
+    // check column 3 for winner
+  } else if (cells[2] !== 'undefined' && cells[2] === cells[5] && cells[2] === cells[8] && cells[2] === 'x') {
+    winner = 'player_x'
+    ui.xWinningMessage()
+  } else if (cells[2] !== 'undefined' && cells[2] === cells[5] && cells[2] === cells[8] && cells[2] === 'o') {
+    winner = 'player_o'
+    ui.oWinningMessage()
+  } else if (cells.every(x => (x !== undefined))) {
+    ui.drawMessage()
+  }
 }
 
 module.exports = {

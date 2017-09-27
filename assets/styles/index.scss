@@ -1,8 +1,10 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
+
 h1,
 h4 {
+  margin: 30px;
   text-align: center;
 }
 
@@ -17,6 +19,10 @@ div {
   background-size: 100% 100%;
 }
 
-// div {
-//   background-size: cover;
-// }
+.btn-primary {
+  margin-top: 40px;
+ }
+
+.user-message {
+  color: #0000ff;
+ }
