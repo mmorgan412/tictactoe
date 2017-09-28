@@ -55,7 +55,6 @@ const signOutFailure = function (error) {
 }
 
 const createGameSuccess = function (data) {
-  events.onGetGames()
   store.game = data.game
   console.log('store.game is ', store.game)
 }

@@ -1,6 +1,7 @@
 'use strict'
 
 const ui = require('./ui.js')
+const authEvents = require('./auth/events')
 
 const cells = new Array(9)
 let winner
@@ -15,7 +16,7 @@ const checkWinner = function () {
   console.log(cells)
   // check row 1 for x winner
   if (cells[0] !== 'undefined' && cells[0] === cells[1] && cells[0] === cells[2] && cells[0] === 'x') {
-    winner = 'player_x'
+    winner = true
     ui.xWinningMessage()
   // check row 1 for o winner
   } else if (cells[0] !== 'undefined' && cells[0] === cells[1] && cells[0] === cells[2] && cells[0] === 'o') {
@@ -81,12 +82,15 @@ const addSelector = function (event) {
   if ($(event.target).css('background-image') === 'none') {
     $(event.target).css('background-image', makeMove(event))
     checkWinner()
+    authEvents.onUpdateGame()
+    console.log(winner)
   }
 }
 
 const makeMove = function (event) {
   const currentPlayer = $('#gameBoard').attr('data-player')
   cells[$(event.target).attr('data-index')] = currentPlayer
+  console.log(cells)
   if (currentPlayer === 'x') {
     $('#gameBoard').attr('data-player', 'o')
     ui.oTurnMessage()

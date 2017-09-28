@@ -56,6 +56,14 @@ const onGetGames = function (event) {
     .catch(ui.getGamesFailure)
 }
 
+const onUpdateGame = function () {
+  console.log('updating game')
+  // event.preventDefault()
+  // api.updateGame()
+  //   .then(ui.updateGameSuccess)
+  //   .catch(ui.updateGameFailure)
+}
+
 const addHandlers = function () {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
@@ -66,5 +74,6 @@ const addHandlers = function () {
 }
 
 module.exports = {
-  addHandlers
+  addHandlers,
+  onUpdateGame
 }
