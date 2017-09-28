@@ -4,6 +4,7 @@
 const getFormFields = require(`../../../lib/get-form-fields`)
 const api = require('./api')
 const ui = require('./ui')
+const eventsMain = require('../events')
 
 const onSignUp = function (event) {
   event.preventDefault()
@@ -41,9 +42,7 @@ const onSignOut = function (event) {
 
 const onCreateGame = function (event) {
   event.preventDefault()
-  const data = getFormFields(this)
-  console.log('it worked!')
-  console.log('create game data is ', data)
+  // const data = getFormFields(this)
   api.createGame()
     .then(ui.createGameSuccess)
     .catch(ui.createGameFailure)
@@ -56,12 +55,27 @@ const onGetGames = function (event) {
     .catch(ui.getGamesFailure)
 }
 
-const onUpdateGame = function () {
-  console.log('updating game')
-  // event.preventDefault()
-  // api.updateGame()
-  //   .then(ui.updateGameSuccess)
-  //   .catch(ui.updateGameFailure)
+const onUpdateGame = function (event) {
+  console.log('event.target is ', event.target)
+  event.preventDefault()
+  const index = $(event.target).attr('data-index')
+  const player = eventsMain.changePlayer
+  const over = eventsMain.gameOver
+  console.log('index is ', index)
+  console.log('player is ', player)
+  console.log('over is ', over)
+  const data = {
+    'game': {
+      'cell': {
+        'index': index,
+        'value': 'x'
+      },
+      'over': true
+    }
+  }
+  api.updateGame(data)
+    .then(ui.updateGameSuccess)
+    .catch(ui.updateGameFail)
 }
 
 const addHandlers = function () {

@@ -1,7 +1,7 @@
 'use strict'
 
 const store = require('../store.js')
-const events = require('./events.js')
+// const events = require('./events.js')
 
 const signUpSuccess = function (data) {
   console.log(data)
@@ -72,6 +72,14 @@ const getGamesFailure = function (error) {
   console.error(error)
 }
 
+const updateGameSuccess = function (data) {
+  (console.log('YOU UPDATED THE GAME!!'))
+}
+
+const updateGameFailure = function (error) {
+  console.error(error)
+}
+
 const logOutDisplay = function () {
   $('#new-game').hide()
   $('#gameBoard').hide()
@@ -96,5 +104,7 @@ module.exports = {
   getGamesSuccess,
   getGamesFailure,
   createGameSuccess,
-  createGameFailure
+  createGameFailure,
+  updateGameSuccess,
+  updateGameFailure
 }

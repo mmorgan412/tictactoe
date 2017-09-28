@@ -16,7 +16,7 @@ const checkWinner = function () {
   console.log(cells)
   // check row 1 for x winner
   if (cells[0] !== 'undefined' && cells[0] === cells[1] && cells[0] === cells[2] && cells[0] === 'x') {
-    winner = true
+    winner = 'player_x'
     ui.xWinningMessage()
   // check row 1 for o winner
   } else if (cells[0] !== 'undefined' && cells[0] === cells[1] && cells[0] === cells[2] && cells[0] === 'o') {
@@ -74,6 +74,7 @@ const checkWinner = function () {
   } else if (cells[0] !== undefined && cells[1] !== undefined && cells[2] !== undefined && cells[3] !== undefined &&
       cells[4] !== undefined && cells[5] !== undefined && cells[6] !== undefined && cells[7] !== undefined &&
       cells[8] !== undefined) {
+    winner = 'draw'
     ui.drawMessage()
   }
 }
@@ -82,15 +83,32 @@ const addSelector = function (event) {
   if ($(event.target).css('background-image') === 'none') {
     $(event.target).css('background-image', makeMove(event))
     checkWinner()
-    authEvents.onUpdateGame()
-    console.log(winner)
+    authEvents.onUpdateGame(event)
+    gameOver()
+  }
+}
+
+const gameOver = function () {
+  if (winner === undefined) {
+    return false
+  } else return true
+}
+
+const changePlayer = function () {
+  console.log('reaching Function')
+  const currentPlayer = $('#gameBoard').attr('data-player')
+  if (currentPlayer === 'x') {
+    console.log('x')
+    return 'x'
+  } else {
+    console.log('o')
+    return 'o'
   }
 }
 
 const makeMove = function (event) {
   const currentPlayer = $('#gameBoard').attr('data-player')
   cells[$(event.target).attr('data-index')] = currentPlayer
-  console.log(cells)
   if (currentPlayer === 'x') {
     $('#gameBoard').attr('data-player', 'o')
     ui.oTurnMessage()
@@ -104,5 +122,7 @@ const makeMove = function (event) {
 
 module.exports = {
   addSelector,
-  newGame
+  newGame,
+  changePlayer,
+  gameOver
 }
