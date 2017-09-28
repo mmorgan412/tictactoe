@@ -43,9 +43,43 @@ const signOut = function () {
   })
 }
 
+// const getGames = function (data) {
+//   console.log('getGames api function reached')
+//   console.log(data)
+//   return $.ajax({
+//     url: config.apiOrigin + '/games' + store.game.id,
+//     method: 'GET',
+//     contentType: 'application/json',
+//     headers: {
+//       Authorization: 'Token token=' + store.user.token
+//     },
+//     data
+//   })
+// }
+
+const createGame = function (data) {
+  console.log(store, store.user)
+  console.log($.ajax({
+    url: config.apiOrigin + '/games',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  }))
+  return $.ajax({
+    url: config.apiOrigin + '/games',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   changePassword,
-  signOut
+  signOut,
+  // getGames,
+  createGame
 }

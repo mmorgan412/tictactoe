@@ -5,26 +5,10 @@ const ui = require('./ui.js')
 const cells = new Array(9)
 let winner
 
-const addSelector = function (event) {
-  if ($(event.target).css('background-image') === 'none') {
-    $(event.target).css('background-image', makeMove(event))
-    checkWinner()
-  }
-}
-
-const makeMove = function (event) {
-  const currentPlayer = $('#gameBoard').attr('data-player')
-  cells[$(event.target).attr('data-index')] = currentPlayer
-  console.log(cells)
-  if (currentPlayer === 'x') {
-    $('#gameBoard').attr('data-player', 'o')
-    ui.oTurnMessage()
-    return 'url(lib/images/letter_x.png)'
-  } else {
-    $('#gameBoard').attr('data-player', 'x')
-    ui.xTurnMessage()
-    return 'url(lib/images/o.png)'
-  }
+const newGame = function () {
+  $('#gameBoard').show()
+  $('#user-message').text('X\'s turn!')
+  $('#new-game').show()
 }
 
 const checkWinner = function () {
@@ -92,12 +76,28 @@ const checkWinner = function () {
     ui.drawMessage()
   }
 }
-//   ui.drawMessage()
-// }
-// const newGame = function (
-//
-// )
+
+const addSelector = function (event) {
+  if ($(event.target).css('background-image') === 'none') {
+    $(event.target).css('background-image', makeMove(event))
+  }
+}
+
+const makeMove = function (event) {
+  const currentPlayer = $('#gameBoard').attr('data-player')
+  cells[$(event.target).attr('data-index')] = currentPlayer
+  if (currentPlayer === 'x') {
+    $('#gameBoard').attr('data-player', 'o')
+    ui.oTurnMessage()
+    return 'url(lib/images/letter_x.png)'
+  } else {
+    $('#gameBoard').attr('data-player', 'x')
+    ui.xTurnMessage()
+    return 'url(lib/images/o.png)'
+  }
+}
 
 module.exports = {
-  addSelector
+  addSelector,
+  newGame
 }
