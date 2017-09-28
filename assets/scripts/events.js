@@ -80,6 +80,7 @@ const checkWinner = function () {
 const addSelector = function (event) {
   if ($(event.target).css('background-image') === 'none') {
     $(event.target).css('background-image', makeMove(event))
+    checkWinner()
   }
 }
 

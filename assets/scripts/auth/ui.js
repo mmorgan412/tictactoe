@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('../store.js')
+const events = require('./events.js')
 
 const signUpSuccess = function (data) {
   console.log(data)
@@ -24,6 +25,7 @@ const signInSuccess = function (data) {
   $('#change-password').show()
   $('#sign-in').trigger('reset')
   $('#new-game').show()
+  $('#get-games').show()
 }
 
 const signInFailure = function (error) {
@@ -44,10 +46,7 @@ const changePasswordFailure = function (error) {
 const signOutSuccess = function () {
   $('#message').text('You have successfully signed out!')
   store.user = null
-  $('#sign-up').show()
-  $('#sign-in').show()
-  $('#sign-out').hide()
-  $('#change-password').hide()
+  logOutDisplay()
 }
 
 const signOutFailure = function (error) {
@@ -55,22 +54,35 @@ const signOutFailure = function (error) {
   $('#message').text('Sign Out Failed')
 }
 
-const getGamesSuccess = function () {
-  $('#message').text('You have successfully recieved games!')
+const createGameSuccess = function (data) {
+  events.onGetGames()
+  store.game = data.game
+  console.log('store.game is ', store.game)
+}
+
+const createGameFailure = function (error) {
+  console.error(error)
+}
+
+const getGamesSuccess = function (data) {
+  // store.games = data.games
+  $('#stats-message').text('You Have Played ' + data.games.length + ' games!')
 }
 
 const getGamesFailure = function (error) {
   console.error(error)
 }
 
-const createGameSuccess = function (data) {
-  $('#message').text('You have successfully created a game!')
-  store.game = data.game
-  console.log('store game is ', store.game)
-}
-
-const createGameFailure = function (error) {
-  console.error(error)
+const logOutDisplay = function () {
+  $('#new-game').hide()
+  $('#gameBoard').hide()
+  $('#sign-up').show()
+  $('#sign-in').show()
+  $('#sign-out').hide()
+  $('#change-password').hide()
+  $('#message').hide()
+  $('#get-games').hide()
+  $('#stats-message').hide()
 }
 
 module.exports = {
