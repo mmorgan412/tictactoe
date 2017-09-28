@@ -28,6 +28,7 @@ const makeMove = function (event) {
 }
 
 const checkWinner = function () {
+  console.log(cells)
   // check row 1 for x winner
   if (cells[0] !== 'undefined' && cells[0] === cells[1] && cells[0] === cells[2] && cells[0] === 'x') {
     winner = 'player_x'
@@ -85,10 +86,17 @@ const checkWinner = function () {
   } else if (cells[2] !== 'undefined' && cells[2] === cells[5] && cells[2] === cells[8] && cells[2] === 'o') {
     winner = 'player_o'
     ui.oWinningMessage()
-  } else if (cells.every(x => (x !== undefined))) {
+  } else if (cells[0] !== undefined && cells[1] !== undefined && cells[2] !== undefined && cells[3] !== undefined &&
+      cells[4] !== undefined && cells[5] !== undefined && cells[6] !== undefined && cells[7] !== undefined &&
+      cells[8] !== undefined) {
     ui.drawMessage()
   }
 }
+//   ui.drawMessage()
+// }
+// const newGame = function (
+//
+// )
 
 module.exports = {
   addSelector
