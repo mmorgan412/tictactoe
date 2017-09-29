@@ -46,18 +46,16 @@ const signOutSuccess = function () {
   logOutDisplay()
 }
 
-const signOutFailure = function (error) {
-  console.error(error)
+const signOutFailure = function () {
   $('#message').text('Sign Out Failed')
 }
 
 const createGameSuccess = function (data) {
   store.game = data.game
-  console.log('store.game is ', store.game)
 }
 
-const createGameFailure = function (error) {
-  console.error(error)
+const createGameFailure = function () {
+  $('#message').text('Create Game Failed')
 }
 
 const getGamesSuccess = function (data) {
@@ -65,16 +63,16 @@ const getGamesSuccess = function (data) {
   $('#stats-message').text('You Have Played ' + data.games.length + ' games!')
 }
 
-const getGamesFailure = function (error) {
-  console.error(error)
+const getGamesFailure = function () {
+  $('#message').text('Error retrieving games')
 }
 
 const updateGameSuccess = function (data) {
   (console.log('YOU UPDATED THE GAME!!'))
 }
 
-const updateGameFailure = function (error) {
-  console.error(error)
+const updateGameFailure = function () {
+  $('#message').text('Could not update games')
 }
 
 const logOutDisplay = function () {
