@@ -145,11 +145,11 @@ const makeMove = function (event) {
   if (currentPlayer === 'x') {
     $('#gameBoard').attr('data-player', 'o')
     ui.oTurnMessage()
-    return 'url(https://imgur.com/a/T1CeO)'
+    return 'url(./images/o.png)'
   } else {
     $('#gameBoard').attr('data-player', 'x')
     ui.xTurnMessage()
-    return 'url(https://imgur.com/a/syrGT)'
+    return 'url(./images/letter_x.png)'
   }
 }
 
