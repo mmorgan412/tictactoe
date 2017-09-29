@@ -8,6 +8,7 @@ let winner
 
 const newGame = function () {
   winner = undefined
+  $('#gameBoard').attr('data-player', 'x')
   $('#row1col1').removeClass('o-background x-background')
   $('#row1col2').removeClass('o-background x-background')
   $('#row1col3').removeClass('o-background x-background')
