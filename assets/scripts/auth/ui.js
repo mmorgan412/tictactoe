@@ -13,9 +13,7 @@ const signUpSuccess = function (data) {
 const signUpFailure = function () {
   $('#message').show()
   $('#sign-in').trigger('reset')
-  if ($('#password') !== $('#password-confirmation')) {
-    $('#message').text('Passwords do not match!')
-  } else $('#message').text('Sign up Failed')
+  $('#message').text('Sign up Failed')
 }
 
 const signInSuccess = function (data) {
@@ -40,7 +38,7 @@ const signInFailure = function () {
 
 const changePasswordSuccess = function () {
   $('#message').show()
-  $('#message').text(data.user.email + ' You have successfully changed your password!')
+  $('#message').text('You have successfully changed your password!')
   $('#change-password').trigger('reset')
 }
 
