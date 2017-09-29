@@ -91,7 +91,7 @@ const checkWinner = function () {
 }
 
 const addSelector = function (event) {
-  if (winner === undefined && ($(event.target).css('class') !== 'x-background' && $(event.target).css('class') !== 'o-background')) {
+  if (winner === undefined && (!$(event.target).hasClass('x-background') && !$(event.target).hasClass('o-background'))) {
     $(event.target).addClass(makeMove(event))
     $(event.target).removeAttr('style')
     checkWinner()
