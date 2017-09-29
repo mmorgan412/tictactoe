@@ -5,14 +5,14 @@ const store = require('../store.js')
 
 const signUpSuccess = function (data) {
   $('#message').show()
-  $('#message').text('You have successfully signed up!')
+  $('#message').text('You have successfully signed up! Log in to Play!')
   $('#sign-up').trigger('reset')
 }
 
 const signUpFailure = function () {
   $('#message').show()
   if ($('#password') !== $('#password-confirmation')) {
-    $('#message').text('passwords do not match!')
+    $('#message').text('Passwords do not match!')
   } else $('#message').text('Sign up Failed')
 }
 
@@ -31,7 +31,7 @@ const signInSuccess = function (data) {
 
 const signInFailure = function () {
   $('#message').show()
-  $('#message').text('Sign in Failed')
+  $('#message').text('Sign in Failed. Check your user name and password and try again.')
 }
 
 const changePasswordSuccess = function () {
@@ -68,7 +68,7 @@ const createGameFailure = function () {
 
 const getGamesSuccess = function (data) {
   $('#stats-message').show()
-  $('#stats-message').text('You Have Played ' + data.games.length + ' games!')
+  $('#stats-message').text('You Have Played ' + data.games.length + ' game(s)!')
 }
 
 const getGamesFailure = function () {
