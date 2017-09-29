@@ -1,12 +1,24 @@
 'use strict'
 
 const ui = require('./ui.js')
-const authEvents = require('./auth/events')
+const authApi = require('./auth/api')
 
-const cells = new Array(9)
+let cells = new Array(9)
 let winner
 
 const newGame = function () {
+  winner = undefined
+  $('#gameBoard').attr('data-player', 'x')
+  $('#row1col1').css('background-image', 'none')
+  $('#row1col2').css('background-image', 'none')
+  $('#row1col3').css('background-image', 'none')
+  $('#row2col1').css('background-image', 'none')
+  $('#row2col2').css('background-image', 'none')
+  $('#row2col3').css('background-image', 'none')
+  $('#row3col1').css('background-image', 'none')
+  $('#row3col2').css('background-image', 'none')
+  $('#row3col3').css('background-image', 'none')
+  cells = new Array(9)
   $('#gameBoard').show()
   $('#user-message').text('X\'s turn!')
   $('#new-game').show()
@@ -48,7 +60,6 @@ const checkWinner = function () {
     ui.oWinningMessage()
   } else if (cells[2] !== 'undefined' && cells[2] === cells[4] && cells[2] === cells[6] && cells[2] === 'x') {
     winner = 'player_x'
-    console.log(winner)
     ui.xWinningMessage()
     // check column 1 for winner
   } else if (cells[0] !== 'undefined' && cells[0] === cells[3] && cells[0] === cells[6] && cells[0] === 'x') {
@@ -80,12 +91,36 @@ const checkWinner = function () {
 }
 
 const addSelector = function (event) {
-  if ($(event.target).css('background-image') === 'none') {
+  if (winner === undefined && $(event.target).css('background-image') === 'none') {
     $(event.target).css('background-image', makeMove(event))
     checkWinner()
-    authEvents.onUpdateGame(event)
+    onUpdateGame(event)
     gameOver()
+    changePlayer()
   }
+}
+
+const onUpdateGame = function (event) {
+  console.log('event.target is ', event.target)
+  event.preventDefault()
+  const index = $(event.target).attr('data-index')
+  const player = changePlayer()
+  const over = gameOver()
+  console.log('index is ', index)
+  console.log('player is ', player)
+  console.log('over is ', over)
+  const data = {
+    'game': {
+      'cell': {
+        'index': index,
+        'value': 'x'
+      },
+      'over': true
+    }
+  }
+  authApi.updateGame(data)
+    .then(ui.updateGameSuccess)
+    .catch(ui.updateGameFail)
 }
 
 const gameOver = function () {
@@ -95,14 +130,11 @@ const gameOver = function () {
 }
 
 const changePlayer = function () {
-  console.log('reaching Function')
   const currentPlayer = $('#gameBoard').attr('data-player')
   if (currentPlayer === 'x') {
-    console.log('x')
-    return 'x'
-  } else {
-    console.log('o')
     return 'o'
+  } else {
+    return 'x'
   }
 }
 

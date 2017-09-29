@@ -17,7 +17,7 @@ const signUpFailure = function (error) {
 }
 
 const signInSuccess = function (data) {
-  $('#message').text('You have successfully signed in!')
+  $('#message').text('You have successfully signed in as ' + data.user.email)
   store.user = data.user
   $('#sign-up').hide()
   $('#sign-in').hide()
@@ -64,7 +64,6 @@ const createGameFailure = function (error) {
 }
 
 const getGamesSuccess = function (data) {
-  // store.games = data.games
   $('#stats-message').text('You Have Played ' + data.games.length + ' games!')
 }
 
@@ -90,6 +89,7 @@ const logOutDisplay = function () {
   $('#message').hide()
   $('#get-games').hide()
   $('#stats-message').hide()
+  $('#user-message').hide()
 }
 
 module.exports = {

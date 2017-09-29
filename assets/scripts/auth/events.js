@@ -1,15 +1,12 @@
 'use strict'
 
-// const store = require('../store.js')
 const getFormFields = require(`../../../lib/get-form-fields`)
 const api = require('./api')
 const ui = require('./ui')
-const eventsMain = require('../events')
 
 const onSignUp = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
-  console.log(data)
   api.signUp(data)
     .then(ui.signUpSuccess)
     .catch(ui.signUpFailure)
@@ -34,7 +31,6 @@ const onChangePassword = function (event) {
 const onSignOut = function (event) {
   const data = getFormFields(this)
   event.preventDefault()
-  console.log('data is ', data)
   api.signOut(data)
     .then(ui.signOutSuccess)
     .catch(ui.signOutFailure)
@@ -55,29 +51,6 @@ const onGetGames = function (event) {
     .catch(ui.getGamesFailure)
 }
 
-const onUpdateGame = function (event) {
-  console.log('event.target is ', event.target)
-  event.preventDefault()
-  const index = $(event.target).attr('data-index')
-  const player = eventsMain.changePlayer
-  const over = eventsMain.gameOver
-  console.log('index is ', index)
-  console.log('player is ', player)
-  console.log('over is ', over)
-  const data = {
-    'game': {
-      'cell': {
-        'index': index,
-        'value': 'x'
-      },
-      'over': true
-    }
-  }
-  api.updateGame(data)
-    .then(ui.updateGameSuccess)
-    .catch(ui.updateGameFail)
-}
-
 const addHandlers = function () {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
@@ -88,6 +61,5 @@ const addHandlers = function () {
 }
 
 module.exports = {
-  addHandlers,
-  onUpdateGame
+  addHandlers
 }

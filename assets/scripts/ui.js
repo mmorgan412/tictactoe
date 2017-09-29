@@ -1,11 +1,11 @@
 'use strict'
 
 const xWinningMessage = function () {
-  $('#user-message').text('X Won The Game!')
+  $('#user-message').text('X Won The Game! Select New Game to play again!')
 }
 
 const oWinningMessage = function () {
-  $('#user-message').text('O Won The Game!')
+  $('#user-message').text('O Won The Game! Select New Game to play again!')
 }
 
 const xTurnMessage = function () {
@@ -17,7 +17,7 @@ const oTurnMessage = function () {
 }
 
 const drawMessage = function () {
-  $('#user-message').text('No Winner!')
+  $('#user-message').text('No Winner! Select New Game to play again!')
 }
 
 module.exports = {
