@@ -145,11 +145,11 @@ const makeMove = function (event) {
   if (currentPlayer === 'x') {
     $('#gameBoard').attr('data-player', 'o')
     ui.oTurnMessage()
-    return $('.x-background')
+    return 'x-background'
   } else {
     $('#gameBoard').attr('data-player', 'x')
     ui.xTurnMessage()
-    return $('.o-background')
+    return 'o-background'
   }
 }
 
