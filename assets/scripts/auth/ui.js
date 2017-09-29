@@ -4,16 +4,14 @@ const store = require('../store.js')
 // const events = require('./events.js')
 
 const signUpSuccess = function (data) {
-  console.log(data)
   $('#message').text('You have successfully signed up!')
   $('#sign-up').trigger('reset')
 }
 
-const signUpFailure = function (error) {
+const signUpFailure = function () {
   if ($('#password') !== $('#password-confirmation')) {
     $('#message').text('passwords do not match!')
   } else $('#message').text('Sign up Failed')
-  console.error(error)
 }
 
 const signInSuccess = function (data) {
@@ -28,8 +26,7 @@ const signInSuccess = function (data) {
   $('#get-games').show()
 }
 
-const signInFailure = function (error) {
-  console.error(error)
+const signInFailure = function () {
   $('#message').text('Sign in Failed')
 }
 
