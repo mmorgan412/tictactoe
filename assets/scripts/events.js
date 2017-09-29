@@ -2,6 +2,8 @@
 
 const ui = require('./ui.js')
 const authApi = require('./auth/api')
+const xImage = require('./images/letter_x.png')
+const oImage = require('./images/o.png')
 
 let cells = new Array(9)
 let winner
@@ -145,11 +147,11 @@ const makeMove = function (event) {
   if (currentPlayer === 'x') {
     $('#gameBoard').attr('data-player', 'o')
     ui.oTurnMessage()
-    return 'url(./images/o.png)'
+    return oImage
   } else {
     $('#gameBoard').attr('data-player', 'x')
     ui.xTurnMessage()
-    return 'url(./images/letter_x.png)'
+    return xImage
   }
 }
 
