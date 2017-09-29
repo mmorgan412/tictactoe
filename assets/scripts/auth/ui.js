@@ -40,7 +40,7 @@ const changePasswordSuccess = function () {
 
 const changePasswordFailure = function (error) {
   console.error(error)
-  $('#message').text('Change Password Failed')
+  $('#message').text('Change Password Failed - Please Try Again!')
 }
 
 const signOutSuccess = function () {
@@ -64,6 +64,7 @@ const createGameFailure = function (error) {
 }
 
 const getGamesSuccess = function (data) {
+  $('#stats-message').show()
   $('#stats-message').text('You Have Played ' + data.games.length + ' games!')
 }
 

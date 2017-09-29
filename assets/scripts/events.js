@@ -22,6 +22,7 @@ const newGame = function () {
   $('#gameBoard').show()
   $('#user-message').text('X\'s turn!')
   $('#new-game').show()
+  $('#stats-message').hide()
 }
 
 const checkWinner = function () {

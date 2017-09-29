@@ -15,39 +15,39 @@
 
 
   <h1>Mel's Tic Tac Toe</h1>
-  <div id="message"> </div>
-  <form id="sign-up">
+  <h5 id="message"> </h5>
+  <form id="sign-up" class="form-inline">
   <fieldset>
-    <legend>Sign up!</legend>
-    <input type="text" name="credentials[email]" placeholder="Enter Email" required>
-    <input type="password" id="password" name="credentials[password]" placeholder="Enter Password" required>
-    <input type="password" id="password-confirmation" name="credentials[password_confirmation]" placeholder="Confirm Password" required>
-    <input type="submit" name="submit" value="Sign up!">
+    <h3>Sign up!</h3>
+    <input type="text" name="credentials[email]" placeholder="Enter Email" class="form-control" required>
+    <input type="password" id="password" name="credentials[password]" placeholder="Enter Password" class="form-control" required>
+    <input type="password" id="password-confirmation" name="credentials[password_confirmation]" class="form-control" placeholder="Confirm Password" required>
+    <input type="submit" name="submit" value="Sign up!" class="btn btn-primary">
   </fieldset>
 </form>
 
-<form id="sign-in">
+<form id="sign-in" class="form-inline">
   <fieldset>
-    <legend>Sign in!</legend>
-    <input type="text" name="credentials[email]" placeholder="Enter Email" required>
-    <input type="password" name="credentials[password]" placeholder="Enter Password" required>
-    <input type="submit" name="submit" value="Sign in!">
+    <h3>Sign in!</h3>
+    <input type="text" name="credentials[email]" placeholder="Enter Email" class="form-control" required>
+    <input type="password" name="credentials[password]" placeholder="Enter Password" class="form-control" required>
+    <input type="submit" name="submit" value="Sign in!" class="btn btn-primary">
   </fieldset>
 </form>
 
-<form id="change-password" style="display:none">
+<form id="change-password" style="display:none" class="form-inline">
   <fieldset>
-    <legend>Change Password!</legend>
-    <input type="text" name="passwords[old]" placeholder="Old Password" required>
-    <input type="text" name="passwords[new]" placeholder="New Password" required>
-    <input type="submit" name="submit" value="Change Password!">
+    <h3>Change Password!</h3>
+    <input type="password" name="passwords[old]" placeholder="Old Password" class="form-control" required>
+    <input type="password" name="passwords[new]" placeholder="New Password" class="form-control" required>
+    <input type="submit" name="submit" value="Change Password!" class="btn btn-primary">
   </fieldset>
 </form>
 
-<form id="sign-out" style="display:none">
+<form id="sign-out" class ="sign-out" style="display:none">
   <fieldset>
-    <legend>Sign Out!</legend>
-    <input type="submit" name="submit" value="Sign Out!">
+    <h3>Sign Out!</h3>
+    <input type="submit" name="submit" value="Sign Out!" class="btn btn-logout">
   </fieldset>
 </form>
 
@@ -77,8 +77,8 @@
       <div class="row">
         <div class="col-xs-4"></div>
         <div class="col-xs-4 text-center">
-          <button type="button" id="new-game" class="btn btn-primary" style="display:none">New Game</button>
-          <button type="button" id="get-games" class="btn btn-primary" style="display:none">Get Game Info</button>
+          <button type="button" id="new-game" class="btn btn-success" style="display:none">New Game</button>
+          <button type="button" id="get-games" class="btn btn-success" style="display:none">Get Game Info</button>
         </div>
 
         <div class="col-xs-4"></div>
