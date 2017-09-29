@@ -23,6 +23,8 @@ div {
   margin-top: 40px;
 }
 
+// ignoring linter error because grunt deploy gives error when the
+//  full url isn't listed
 .x-background {
   background-image: url('https://i.imgur.com/x11i6uK.png');
 }
