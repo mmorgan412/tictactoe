@@ -25,7 +25,6 @@ const newGame = function () {
 }
 
 const checkWinner = function () {
-  console.log(cells)
   // check row 1 for x winner
   if (cells[0] !== 'undefined' && cells[0] === cells[1] && cells[0] === cells[2] && cells[0] === 'x') {
     winner = 'player_x'
