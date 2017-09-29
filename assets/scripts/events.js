@@ -20,6 +20,7 @@ const newGame = function () {
   $('#row3col3').removeClass('o-background x-background')
   cells = new Array(9)
   $('#gameBoard').show()
+  $('#user-message').show()
   $('#user-message').text('X\'s turn!')
   $('#new-game').show()
   $('#stats-message').hide()

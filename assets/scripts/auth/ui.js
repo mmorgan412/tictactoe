@@ -4,17 +4,20 @@ const store = require('../store.js')
 // const events = require('./events.js')
 
 const signUpSuccess = function (data) {
+  $('#message').show()
   $('#message').text('You have successfully signed up!')
   $('#sign-up').trigger('reset')
 }
 
 const signUpFailure = function () {
+  $('#message').show()
   if ($('#password') !== $('#password-confirmation')) {
     $('#message').text('passwords do not match!')
   } else $('#message').text('Sign up Failed')
 }
 
 const signInSuccess = function (data) {
+  $('#message').show()
   $('#message').text('You have successfully signed in as ' + data.user.email)
   store.user = data.user
   $('#sign-up').hide()
@@ -27,26 +30,30 @@ const signInSuccess = function (data) {
 }
 
 const signInFailure = function () {
+  $('#message').show()
   $('#message').text('Sign in Failed')
 }
 
 const changePasswordSuccess = function () {
+  $('#message').show()
   $('#message').text('You have successfully changed your password!')
   $('#change-password').trigger('reset')
 }
 
-const changePasswordFailure = function (error) {
-  console.error(error)
+const changePasswordFailure = function () {
+  $('#message').show()
   $('#message').text('Change Password Failed - Please Try Again!')
 }
 
 const signOutSuccess = function () {
+  $('#message').show()
   $('#message').text('You have successfully signed out!')
   store.user = null
   logOutDisplay()
 }
 
 const signOutFailure = function () {
+  $('#message').show()
   $('#message').text('Sign Out Failed')
 }
 
@@ -55,6 +62,7 @@ const createGameSuccess = function (data) {
 }
 
 const createGameFailure = function () {
+  $('#message').show()
   $('#message').text('Create Game Failed')
 }
 
@@ -64,10 +72,12 @@ const getGamesSuccess = function (data) {
 }
 
 const getGamesFailure = function () {
+  $('#message').show()
   $('#message').text('Error retrieving games')
 }
 
 const updateGameFailure = function () {
+  $('#message').show()
   $('#message').text('Could not update games')
 }
 
