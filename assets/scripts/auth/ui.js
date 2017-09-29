@@ -7,6 +7,7 @@ const signUpSuccess = function (data) {
   $('#message').show()
   $('#message').text('You have successfully signed up! Log in to Play!')
   $('#sign-up').trigger('reset')
+  $('#sign-in').trigger('reset')
 }
 
 const signUpFailure = function () {
@@ -27,6 +28,7 @@ const signInSuccess = function (data) {
   $('#sign-in').trigger('reset')
   $('#new-game').show()
   $('#get-games').show()
+  $('#sign-up').trigger('reset')
 }
 
 const signInFailure = function () {
@@ -92,6 +94,7 @@ const logOutDisplay = function () {
   $('#get-games').hide()
   $('#stats-message').hide()
   $('#user-message').hide()
+  $('#change-password').trigger('reset')
 }
 
 module.exports = {
