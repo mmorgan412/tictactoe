@@ -94,6 +94,7 @@ const checkWinner = function () {
 const addSelector = function (event) {
   if (winner === undefined && $(event.target).css('background-image') === 'none') {
     $(event.target).addClass(makeMove(event))
+    $(event.target).removeAttr('style')
     checkWinner()
     onUpdateGame(event)
     gameOver()
