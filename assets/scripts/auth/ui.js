@@ -26,8 +26,9 @@ const signInSuccess = function (data) {
   $('#get-games').show()
 }
 
-const signInFailure = function () {
+const signInFailure = function (error) {
   $('#message').text('Sign in Failed')
+  console.log(error)
 }
 
 const changePasswordSuccess = function () {
