@@ -145,7 +145,7 @@ const makeMove = function (event) {
   if (currentPlayer === 'x') {
     $('#gameBoard').attr('data-player', 'o')
     ui.oTurnMessage()
-    return 'url(https://imgur.com/a/T1CeO)'
+    return 'https://imgur.com/a/T1CeO'
   } else {
     $('#gameBoard').attr('data-player', 'x')
     ui.xTurnMessage()
