@@ -8,16 +8,15 @@ let winner
 
 const newGame = function () {
   winner = undefined
-  $('#gameBoard').attr('data-player', 'x')
-  $('#row1col1').css('class', 'col-xs-4 box panel')
-  $('#row1col2').css('class', 'col-xs-4 box panel')
-  $('#row1col3').css('class', 'col-xs-4 box panel')
-  $('#row2col1').css('class', 'col-xs-4 box panel')
-  $('#row2col2').css('class', 'col-xs-4 box panel')
-  $('#row2col3').css('class', 'col-xs-4 box panel')
-  $('#row3col1').css('class', 'col-xs-4 box panel')
-  $('#row3col2').css('class', 'col-xs-4 box panel')
-  $('#row3col3').css('class', 'col-xs-4 box panel')
+  $('row1col1').removeClass('o-background x-background')
+  $('#row1col2').removeClass('o-background x-background')
+  $('#row1col3').removeClass('o-background x-background')
+  $('#row2col1').removeClass('o-background x-background')
+  $('#row2col2').removeClass('o-background x-background')
+  $('#row2col3').removeClass('o-background x-background')
+  $('#row3col1').removeClass('o-background x-background')
+  $('#row3col2').removeClass('o-background x-background')
+  $('#row3col3').removeClass('o-background x-background')
   cells = new Array(9)
   $('#gameBoard').show()
   $('#user-message').text('X\'s turn!')
@@ -92,7 +91,7 @@ const checkWinner = function () {
 }
 
 const addSelector = function (event) {
-  if (winner === undefined && $(event.target).css('class') !== ('x-background' || 'o-background')) {
+  if (winner === undefined && ($(event.target).css('class') !== 'x-background' && $(event.target).css('class') !== 'o-background')) {
     $(event.target).addClass(makeMove(event))
     $(event.target).removeAttr('style')
     checkWinner()
