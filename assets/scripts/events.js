@@ -2,8 +2,6 @@
 
 const ui = require('./ui.js')
 const authApi = require('./auth/api')
-const xImage = require('./images/letter_x.png')
-const oImage = require('./images/o.png')
 
 let cells = new Array(9)
 let winner
@@ -95,7 +93,7 @@ const checkWinner = function () {
 
 const addSelector = function (event) {
   if (winner === undefined && $(event.target).css('background-image') === 'none') {
-    $(event.target).css('background-image', makeMove(event))
+    $(event.target).addClass(makeMove(event))
     checkWinner()
     onUpdateGame(event)
     gameOver()
@@ -147,11 +145,11 @@ const makeMove = function (event) {
   if (currentPlayer === 'x') {
     $('#gameBoard').attr('data-player', 'o')
     ui.oTurnMessage()
-    return oImage
+    return $('.x-background')
   } else {
     $('#gameBoard').attr('data-player', 'x')
     ui.xTurnMessage()
-    return xImage
+    return $('.o-background')
   }
 }
 
