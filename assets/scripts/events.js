@@ -8,7 +8,7 @@ let winner
 
 const newGame = function () {
   winner = undefined
-  $('row1col1').removeClass('o-background x-background')
+  $('#row1col1').removeClass('o-background x-background')
   $('#row1col2').removeClass('o-background x-background')
   $('#row1col3').removeClass('o-background x-background')
   $('#row2col1').removeClass('o-background x-background')
@@ -102,25 +102,20 @@ const addSelector = function (event) {
 }
 
 const onUpdateGame = function (event) {
-  console.log('event.target is ', event.target)
   event.preventDefault()
   const index = $(event.target).attr('data-index')
   const player = changePlayer()
   const over = gameOver()
-  console.log('index is ', index)
-  console.log('player is ', player)
-  console.log('over is ', over)
   const data = {
     'game': {
       'cell': {
         'index': index,
-        'value': 'x'
+        'value': player
       },
-      'over': true
+      'over': over
     }
   }
   authApi.updateGame(data)
-    .then(ui.updateGameSuccess)
     .catch(ui.updateGameFail)
 }
 

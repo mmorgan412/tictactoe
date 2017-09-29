@@ -67,10 +67,6 @@ const getGamesFailure = function () {
   $('#message').text('Error retrieving games')
 }
 
-const updateGameSuccess = function (data) {
-  (console.log('YOU UPDATED THE GAME!!'))
-}
-
 const updateGameFailure = function () {
   $('#message').text('Could not update games')
 }
@@ -101,6 +97,5 @@ module.exports = {
   getGamesFailure,
   createGameSuccess,
   createGameFailure,
-  updateGameSuccess,
   updateGameFailure
 }
