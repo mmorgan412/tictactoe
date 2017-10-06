@@ -1,4 +1,4 @@
- My Game URL: https://github.com/mmorgan412/tictactoe
+ My Game URL: https://mmorgan412.github.io/tictactoe/
 
 - Play my tic-tac-toe game made by me - Melanie Gelinas!
 - This game was made using javascript, jquery, and interacts with an API.
